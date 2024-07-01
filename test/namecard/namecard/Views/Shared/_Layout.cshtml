@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAMECARD</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white; /* Nền trắng */
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+        }
+
+        .header-logo {
+            width: 50px; /* Điều chỉnh chiều rộng theo ý muốn */
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+            .header-buttons a {
+                color: black; /* Chữ đen */
+                text-decoration: none;
+                padding: 10px 15px;
+                border-radius: 5px;
+            }
+
+                .header-buttons a:hover {
+                    background-color: #f0f0f0; /* Màu khi hover */
+                }
+
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white; /* Nền trắng */
+            padding: 10px;
+            position: fixed;
+            bottom: 20px; /* Tạo khoảng cách với đít màn hình */
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: fit-content; /* Chiều rộng vừa đủ chứa văn bản */
+            border: 1px solid #ddd; /* Viền khung */
+            border-radius: 25px; /* Viền mềm mại hơn cho cả bốn góc */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+        }
+
+        .footer-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+            .footer-buttons a {
+                color: black; /* Chữ đen */
+                text-decoration: none;
+                padding: 5px 10px; /* Điều chỉnh padding để khung nhỏ lại */
+                border-radius: 5px;
+            }
+
+                .footer-buttons a:hover {
+                    background-color: #f0f0f0; /* Màu khi hover */
+                }
+
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding-top: 60px; /* Khoảng trống cho header cố định */
+            padding-bottom: 80px; /* Khoảng trống cho footer cố định */
+        }
+
+        .fixed-buttons {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-left: 10px;
+        }
+
+            .fixed-buttons a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                background-color: #343a40; /* Màu nền của nút */
+                color: white; /* Màu của biểu tượng */
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+                .fixed-buttons a:hover {
+                    background-color: #495057; /* Màu khi hover */
+                }
+
+                .fixed-buttons a i {
+                    font-size: 20px; /* Kích thước biểu tượng */
+                }
+        .fixed-buttons-right {
+            position: fixed;
+            bottom: 20px; /* Tạo khoảng cách với đáy màn hình */
+            right: 20px; /* Đặt ở góc phải */
+        }
+
+            .fixed-buttons-right a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                background-color: #343a40; /* Màu nền của nút */
+                color: white; /* Màu của biểu tượng */
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+                .fixed-buttons-right a:hover {
+                    background-color: #495057; /* Màu khi hover */
+                }
+
+                .fixed-buttons-right a i {
+                    font-size: 20px; /* Kích thước biểu tượng */
+                }
+    </style>
+    <!-- Thư viện Font Awesome để sử dụng các biểu tượng -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            <div class="header-container">
+                <img src="~/images/logo1.png" alt="Logo" class="header-logo">
+                <div class="header-buttons">
+                    <a href="#home">Trang chủ</a>
+                    <a href="#banking">Ngân hàng</a>
+                    <a href="#experience">Kinh nghiệm</a>
+                    <a href="#profile">Hồ sơ</a>
+                    <a href="#business">Doanh nghiệp</a>
+                    <a href="#achievements">Thành tựu</a>
+                    <a href="#quotes">Châm ngôn</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="content">
+        @RenderBody()
+    </div>
+    <footer class="footer-container">
+        <div class="footer-buttons">
+            <a href="#">Cá nhân</a>
+            <a href="#">Danh bạ</a>
+            <a href="#">Ưu đãi</a>
+            <a href="#">MyCard</a>
+            <a href="#">Thông báo</a>
+            <a href="#">Menu</a>
+        </div>
+    </footer>
+
+    <!-- Các nút cố định với biểu tượng -->
+    <div class="fixed-buttons">
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        <a href="#"><i class="fas fa-phone"></i></a>
+    </div>
+    <div class="fixed-buttons-right">
+        <a href="#"><i class="fas fa-envelope"></i></a>
+    </div>
+</body>
+</html>

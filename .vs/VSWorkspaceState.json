@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\namecard",
+    "\\namecard\\namecard",
+    "\\namecard\\namecard\\Views",
+    "\\namecard\\namecard\\Views\\Home",
+    "\\test"
+  ],
+  "SelectedNode": "\\namecard\\namecard\\Views\\Home\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}
